@@ -1,10 +1,11 @@
 #!/bin/bash
-if [ $# -ne 1 ]
-then
-    echo "Usage: $O {IP_ADDRESS}"
+usage() {
+    echo "Usage: $0 {IP_ADDRESS}"
     exit 1
+}
+if [ $# -ne 1 ]; then
+    usage
 fi
-
 ip_address=$1
-
-ping -c 5 "$ip_address"
+ping_result=$(ping -c 5 "$ip_address")
+echo "$ping_result"
