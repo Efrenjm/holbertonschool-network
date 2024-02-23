@@ -1,10 +1,2 @@
 #!/bin/bash
-echo "Active Internet connections (only servers)"
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
-echo "TCP Ports:"
-netstat -tuln | awk '/^tcp/ {print $1,$4,$NF}' | sed 's/:::/[::]/g' | awk '{print $1,$2,$7}' | column -t
-echo "UDP Ports:"
-netstat -uln | awk '/^udp/ {print $1,$4,$NF}' | sed 's/:::/[::]/g' | awk '{print $1,$2,$6}' | column -t
-echo "Active UNIX domain sockets (only servers)"
-echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
-netstat -x | awk '/^unix/ {print $1,$2,$3,$4,$5,$6,$7}' | column -t
+netstat -ln
