@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+    echo "Usage: $O {IP_ADDRESS}"
+    exit 1
+fi
+
+ip_address=$1
+
+ping -c 5 "$ip_address"

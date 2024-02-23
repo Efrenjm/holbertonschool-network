@@ -1,2 +1,2 @@
 #!/bin/bash
-netstat -tulpn
+netstat -tulpn | grep "^TCP.*LISTEN" | awk '{ print $4,$7,$5 }' | tr -s ' ' ':'
